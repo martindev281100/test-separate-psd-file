@@ -25,7 +25,7 @@ func main() {
 
 	r := gin.Default()
 	r.POST("/v1/file/upload", handleUpload)
-	r.Run(":8081")
+	r.Run(":8082")
 }
 
 func handleUpload(c *gin.Context) {

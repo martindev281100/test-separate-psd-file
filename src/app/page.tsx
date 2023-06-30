@@ -44,13 +44,13 @@ const UploadFile = () => {
           psdUrl: "https://example.com/imageurl",
           thumbnailUrl: "https://example.com/thumbnailurl",
           name: "fileName",
-          psdProductId: "08345783-b536-4e2c-9bef-7b42d03e0a82",
+          psdProductId: "12286d9b-b2f2-49e0-85a0-dfce9c1e4abd",
           userId: "ba2b3f1a-a9a9-41b3-b4fc-10b2ae28319d",
-          variant: {
-            color: "Blue",
-            size: "Medium",
-            price: 15.99,
-          },
+          variant: [
+            {
+              name: "XL",
+            },
+          ],
           vendor: "GG",
           title: "this is file title",
         })
@@ -61,7 +61,7 @@ const UploadFile = () => {
           method: "POST",
           body: formData,
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODc1OTg0OTQsImlhdCI6MTY4NzUxMjA5NCwidXNlcklEIjoiYmEyYjNmMWEtYTlhOS00MWIzLWI0ZmMtMTBiMmFlMjgzMTlkIiwiZW1haWwiOiJtYW5oZGtAZ29kZ3JvdXAuY28iLCJyb2xlIjoiU1VQRVJfQURNSU4ifQ.EMXyiZHxcvYNrRhBK71MHcnxDECf_GnFX4XPlErzZS4`,
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODgyMjU0OTUsImlhdCI6MTY4ODEzOTA5NSwidXNlcklEIjoiYmEyYjNmMWEtYTlhOS00MWIzLWI0ZmMtMTBiMmFlMjgzMTlkIiwiZW1haWwiOiJtYW5oZGtAZ29kZ3JvdXAuY28iLCJyb2xlIjoiU1VQRVJfQURNSU4ifQ.1gwQ5ejhmMcnF4cl-hVpJNoqhmGN4u-Nln6NNAGvkPo`,
           },
           onUploadProgress: (progressEvent: {
             loaded: number;
