@@ -36,43 +36,40 @@ const UploadFile = () => {
       formData.append(
         "data",
         JSON.stringify({
-          productId: "e19caaac-f8fc-4428-b722-3de5d533ce09",
-          productTitle: "martin test",
-          style: {
-            background: "black",
-          },
-          psdUrl: "https://example.com/imageurl",
-          thumbnailUrl: "https://example.com/thumbnailurl",
-          name: "fileName",
-          psdProductId: "12286d9b-b2f2-49e0-85a0-dfce9c1e4abd",
+          // productId: "8002567667940",
+          asin: "B0C6T381Q5",
+          psdProductId: "4d4a8461-b7f2-4506-a162-0d2e70356cae",
           userId: "ba2b3f1a-a9a9-41b3-b4fc-10b2ae28319d",
           variant: [
             {
-              name: "XL",
+              name: "Large",
             },
           ],
-          vendor: "GG",
+          vendor: "GodGroup",
           title: "this is file title",
         })
       );
 
       try {
-        const response = await fetch("http://localhost:8081/v1/file/upload", {
-          method: "POST",
-          body: formData,
-          headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODgyMjU0OTUsImlhdCI6MTY4ODEzOTA5NSwidXNlcklEIjoiYmEyYjNmMWEtYTlhOS00MWIzLWI0ZmMtMTBiMmFlMjgzMTlkIiwiZW1haWwiOiJtYW5oZGtAZ29kZ3JvdXAuY28iLCJyb2xlIjoiU1VQRVJfQURNSU4ifQ.1gwQ5ejhmMcnF4cl-hVpJNoqhmGN4u-Nln6NNAGvkPo`,
-          },
-          onUploadProgress: (progressEvent: {
-            loaded: number;
-            total: number;
-          }) => {
-            const progressPercent = Math.round(
-              (progressEvent.loaded / progressEvent.total) * 100
-            );
-            setProgress(progressPercent);
-          },
-        });
+        const response = await fetch(
+          "https://nas.godmerch.com/v1/file/upload",
+          {
+            method: "POST",
+            body: formData,
+            headers: {
+              Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODg3MjM3MzQsImlhdCI6MTY4ODYzNzMzNCwidXNlcklEIjoiYmEyYjNmMWEtYTlhOS00MWIzLWI0ZmMtMTBiMmFlMjgzMTlkIiwiZW1haWwiOiJtYW5oZGtAZ29kZ3JvdXAuY28iLCJyb2xlIjoiU1VQRVJfQURNSU4ifQ.DuwTisR5B7G_vMPQnNXWDwhkniZ64fwv1VJS2MLa8e0`,
+            },
+            onUploadProgress: (progressEvent: {
+              loaded: number;
+              total: number;
+            }) => {
+              const progressPercent = Math.round(
+                (progressEvent.loaded / progressEvent.total) * 100
+              );
+              setProgress(progressPercent);
+            },
+          }
+        );
 
         if (response.ok) {
           uploadedChunks++;
